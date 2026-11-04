@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1420" />
+  <title>Planta Industrial 3D</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main id="app">
+    <section id="viewport" aria-label="Visualização 3D da planta industrial">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">SIMULADOR DIDÁTICO • ENGENHARIA</div>
+          <h1>PLANTA INDUSTRIAL <span>3D</span></h1>
+          <p>Exploração interativa de tubulações, equipamentos e segurança operacional.</p>
+        </div>
+        <div class="status"><i></i> SISTEMA 3D ATIVO</div>
+      </div>
+
+      <div class="toolbar">
+        <button class="tool active" data-view="overview">Visão geral</button>
+        <button class="tool" data-view="pipes">Tubulações</button>
+        <button class="tool" data-view="equipment">Equipamentos</button>
+        <button class="tool" data-view="loto">Segurança LOTO</button>
+      </div>
+
+      <div class="legend">
+        <span><i class="dot water"></i> Água</span>
+        <span><i class="dot process"></i> Processo</span>
+        <span><i class="dot hot"></i> Fluido quente</span>
+      </div>
+
+      <div class="bottom-controls">
+        <button id="flowBtn" class="secondary">▶ Ativar fluxo</button>
+        <button id="tourBtn" class="secondary">◎ Explorar processo</button>
+        <button id="resetBtn" class="secondary">↺ Reiniciar câmera</button>
+      </div>
+      <div class="hint">Arraste para girar • Pinça/roda para zoom • Toque em um equipamento para selecioná-lo</div>
+    </section>
+
+    <aside class="info-panel">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow">PAINEL DE CONTROLE</div>
+          <h2 id="infoTitle">Visão geral</h2>
+        </div>
+        <span class="live-pill">AO VIVO</span>
+      </div>
+      <p id="infoText">Explore a instalação. Selecione tanques, bombas, válvulas ou tubulações para conhecer suas funções.</p>
+      <div class="divider"></div>
+      <div class="info-grid">
+        <div><small>UNIDADE</small><strong>SKID-01</strong></div>
+        <div><small>EQUIPAMENTOS</small><strong>08+</strong></div>
+        <div><small>PROCESSO</small><strong>FLUIDOS</strong></div>
+        <div><small>SEGURANÇA</small><strong>LOTO</strong></div>
+      </div>
+      <div class="divider"></div>
+      <h3>Equipamento selecionado</h3>
+      <div class="selected-card">
+        <div class="selected-icon">⌁</div>
+        <div>
+          <strong id="selectedName">Nenhum equipamento</strong>
+          <small id="selectedId">Selecione um objeto na planta</small>
+        </div>
+      </div>
+      <div id="details" class="details">A instalação representa um sistema didático de armazenamento, bombeamento e distribuição de fluidos.</div>
+      <div class="panel-footer">MODELO CONCEITUAL • NÃO REPRESENTA UM PROJETO EXECUTIVO</div>
+    </aside>
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
